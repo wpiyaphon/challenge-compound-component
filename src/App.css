@@ -40,3 +40,76 @@
 .read-the-docs {
   color: #888;
 }
+
+.postcard {
+  color: #4b8ea0;
+  width: 500px;
+  height: 300px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  border: 10px solid transparent;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #e93545,
+      #e93545 10px,
+      white 10px,
+      white 20px,
+      #057b93 20px,
+      #057b93 30px
+    )
+    10;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.postcard-header {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.postcard-body {
+  display: flex;
+  height: 75%;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+}
+.postcard-image {
+  width: 60%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+}
+.postcard-address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.stamp {
+  width: 80px;
+  height: 60px;
+  border: 2px dashed #dfeae9;
+  margin-bottom: 10px;
+}
+.lines {
+  width: 90%;
+  height: 1px;
+  background: #dfeae9;
+  margin: 12px 0;
+}
+.postcard-send {
+  background-color: #057b93;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px;
+  padding: 6px 16px;
+  min-width: 72px;
+}
+
+img:hover {
+  opacity: 0.9 !important;
+}

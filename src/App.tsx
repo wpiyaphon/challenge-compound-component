@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import { SimplePostcardSubmit } from "./components/simple-postcard/simple-postcard-submit"
+import { SimplePostcardImage } from "./components/simple-postcard/simple-postcard-image"
+import { SimplePostcardAddress } from "./components/simple-postcard/simple-postcard-address"
+
+import "./App.css"
+
+// ----------------------------------------------------------------------
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  function handleSubmit() {
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+    }, 3000)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {/* -- Simple Postcard -- */}
+      <div className="postcard">
+        <div className="postcard-header">POSTCARD</div>
+        <div className="postcard-body">
+          <SimplePostcardImage isSubmitting={isSubmitting} />
+          <SimplePostcardAddress />
+          <SimplePostcardSubmit
+            isSubmitting={isSubmitting}
+            onClickSubmit={handleSubmit}
+          />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      {/* -- Compound Postcard -- */}
+      {/* <CompoundPostcard>
+        <CompoundPostcard.Image />
+        <CompoundPostcard.Address />
+        <CompoundPostcard.Submit />
+      </CompoundPostcard> */}
     </>
   )
 }
