@@ -1,9 +1,7 @@
 import { useState } from "react"
 import { IMAGES_URL } from "../../constant/image-url"
-import {
-  CompoundPostcardContext,
-  useCompoundPostcard,
-} from "./compound-postcard-context"
+import { useCompoundPostcard } from "./compound-postcard-context"
+import CompoundPostcardProvider from "./compound-postcard-provider"
 
 // ----------------------------------------------------------------------
 
@@ -14,34 +12,14 @@ type CompoundPostcardProps = {
 
 // ----------------------------------------------------------------------
 
-export default function CompoundPostcard({
-  children,
-  hideTitle,
-}: CompoundPostcardProps) {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [imageIndex, setImageIndex] = useState(1)
-
-  const handleClickImage = () => {
-    if (isSubmitting) return
-    setImageIndex((imageIndex + 1) % (IMAGES_URL.length + 1) || 1)
-  }
-
-  const handleSubmit = () => {
-    setIsSubmitting(true)
-    setTimeout(() => {
-      setIsSubmitting(false)
-    }, 3000)
-  }
-
+export default function CompoundPostcard({ children }: CompoundPostcardProps) {
   return (
-    <CompoundPostcardContext.Provider
-      value={{ isSubmitting, handleClickImage, handleSubmit }}
-    >
+    <CompoundPostcardProvider>
       <div className="postcard">
-        {!hideTitle && <div className="postcard-header">POSTCARD</div>}
+        <div className="postcard-header">POSTCARD</div>
         <div className="postcard-body">{children}</div>
       </div>
-    </CompoundPostcardContext.Provider>
+    </CompoundPostcardProvider>
   )
 }
 
@@ -68,11 +46,11 @@ CompoundPostcard.Submit = function CompoundPostcardSubmit() {
 CompoundPostcard.Image = function CompoundPostcardImage() {
   const { isSubmitting } = useCompoundPostcard()
 
-  const [imageIndex, setImageIndex] = useState(1)
+  const [imageIndex, setImageIndex] = useState(0)
 
   function onClickImage() {
     if (isSubmitting) return
-    setImageIndex((imageIndex + 1) % (IMAGES_URL.length + 1) || 1)
+    setImageIndex((prev) => (prev + 1) % IMAGES_URL.length)
   }
 
   return (

@@ -4,7 +4,6 @@ import { createContext, useContext } from "react"
 
 type CompoundPostcardContextType = {
   isSubmitting: boolean
-  handleClickImage: () => void
   handleSubmit: () => void
 }
 
@@ -18,7 +17,7 @@ export const useCompoundPostcard = () => {
 
   if (!compoundPostcardContext) {
     throw new Error(
-      "useCurrentUser has to be used within <CurrentUserContext.Provider>"
+      "useCompoundPostcard has to be used within <CompoundPostcardContext.Provider>"
     )
   }
 
