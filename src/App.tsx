@@ -4,10 +4,12 @@ import { SimplePostcardImage } from "./components/simple-postcard/simple-postcar
 import { SimplePostcardAddress } from "./components/simple-postcard/simple-postcard-address"
 
 import "./App.css"
+import CompoundPostcard from "./components/compound-postcard/compound-postcard"
 
 // ----------------------------------------------------------------------
 
 function App() {
+  // These state and function are used for the simple postcard
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   function handleSubmit() {
@@ -20,6 +22,7 @@ function App() {
   return (
     <>
       {/* -- Simple Postcard -- */}
+      <h2>Simple Component</h2>
       <div className="postcard">
         <div className="postcard-header">POSTCARD</div>
         <div className="postcard-body">
@@ -33,11 +36,12 @@ function App() {
       </div>
 
       {/* -- Compound Postcard -- */}
-      {/* <CompoundPostcard>
+      <h2>Compound Component</h2>
+      <CompoundPostcard>
         <CompoundPostcard.Image />
         <CompoundPostcard.Address />
         <CompoundPostcard.Submit />
-      </CompoundPostcard> */}
+      </CompoundPostcard>
     </>
   )
 }
