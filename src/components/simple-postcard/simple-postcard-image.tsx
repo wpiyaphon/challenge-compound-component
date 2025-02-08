@@ -6,11 +6,11 @@ export function SimplePostcardImage({
 }: {
   isSubmitting: boolean
 }) {
-  const [imageIndex, setImageIndex] = useState(1)
+  const [imageIndex, setImageIndex] = useState(0)
 
   function onClickImage() {
     if (isSubmitting) return
-    setImageIndex((imageIndex + 1) % (IMAGES_URL.length + 1) || 1)
+    setImageIndex((prev) => (prev + 1) % IMAGES_URL.length)
   }
 
   return (
