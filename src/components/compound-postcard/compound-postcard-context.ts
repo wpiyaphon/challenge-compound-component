@@ -9,7 +9,7 @@ type CompoundPostcardContextType = {
 
 // ----------------------------------------------------------------------
 
-const CompoundPostcardContext =
+export const CompoundPostcardContext =
   createContext<CompoundPostcardContextType | null>(null)
 
 export const useCompoundPostcard = () => {
