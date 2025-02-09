@@ -6,7 +6,6 @@ import CompoundPostcardProvider from "./compound-postcard-provider"
 
 type CompoundPostcardProps = {
   children: React.ReactNode
-  hideTitle?: boolean
 }
 
 // ----------------------------------------------------------------------
