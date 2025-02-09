@@ -16,7 +16,7 @@ export function SimplePostcardImage({
 
   return (
     <img
-      src={`/img-${imageIndex}.jpg`}
+      src={`${import.meta.env.BASE_URL}/img-${imageIndex}.jpg`}
       alt="image"
       className="postcard-image"
       style={{
