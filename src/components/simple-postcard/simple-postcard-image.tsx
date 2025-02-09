@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { IMAGES_URL } from "../../constant/image-url"
 
 export function SimplePostcardImage({
   isSubmitting,
@@ -8,9 +7,11 @@ export function SimplePostcardImage({
 }) {
   const [imageIndex, setImageIndex] = useState(0)
 
+  const imagesLength = 4
+
   function onClickImage() {
     if (isSubmitting) return
-    setImageIndex((prev) => (prev + 1) % IMAGES_URL.length)
+    setImageIndex((prev) => (prev + 1) % imagesLength)
   }
 
   return (

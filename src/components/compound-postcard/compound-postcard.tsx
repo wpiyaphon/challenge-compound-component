@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { IMAGES_URL } from "../../constant/image-url"
 import { useCompoundPostcard } from "./compound-postcard-context"
 import CompoundPostcardProvider from "./compound-postcard-provider"
 
@@ -48,9 +47,11 @@ CompoundPostcard.Image = function CompoundPostcardImage() {
 
   const [imageIndex, setImageIndex] = useState(0)
 
+  const imagesLength = 4
+
   function onClickImage() {
     if (isSubmitting) return
-    setImageIndex((prev) => (prev + 1) % IMAGES_URL.length)
+    setImageIndex((prev) => (prev + 1) % imagesLength)
   }
 
   return (
