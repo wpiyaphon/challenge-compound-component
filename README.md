@@ -26,11 +26,11 @@ Follow these steps to set up the project locally.
    ```
 3. Install the dependencies:
    ```sh
-    npm install
+    yarn install
    ```
 4. Start the development server:
    ```sh
-    npm start
+    yarn dev
    ```
 
 ## Challenge Details
